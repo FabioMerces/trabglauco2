@@ -1,0 +1,57 @@
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+
+	<ui:define name="title">
+		<h:outputText value="Cadastro de Pagamentos a Prazo" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<h1>Cadastro de pagamentos a Prazo</h1>
+		<h:form id="formAPrazo">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Codigo" />
+				<p:inputText value="#{aPrazoMB.APrazo.codigo}" />
+				<p:outputLabel value="Valor" />
+				<p:inputText value="#{aPrazoMB.APrazo.valor}" />
+				<p:outputLabel value="TaxaJuros" />
+				<p:inputText value="#{aPrazoMB.APrazo.taxaJuros}" />
+				<p:outputLabel value="QtdeMensalidade" />
+				<p:inputText value="#{aPrazoMB.APrazo.qtdeMensalidade}" />
+				<p:outputLabel value="DtVencimento" />
+				<p:inputText value="#{aPrazoMB.APrazo.dtVencimento}" />
+			</p:panelGrid>
+			<p:commandButton value="Salvar" action="#{aPrazoMB.salvar}"
+				update=":formAPrazo" />
+
+			<p:dataTable value="#{aPrazoMB.APrazos}" var="aux">
+				<p:column headerText="Codigo">
+					<h:outputText value="#{aux.codigo}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Valor">
+					<h:outputText value="#{aux.valor}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="TaxaJuros">
+					<h:outputText value="#{aux.taxaJuros}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="QtdeMensalidade">
+					<h:outputText value="#{aux.qtdeMensalidade}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="DtVencimento">
+					<h:outputText value="#{aux.dtVencimento}"></h:outputText>
+				</p:column>
+
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

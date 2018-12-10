@@ -1,0 +1,66 @@
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+
+	<ui:define name="title">
+		<h:outputText value="Cadastro de Cursos" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<h1>Cadastro de Cursos</h1>
+		<h:form id="formCurso">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Sigla" />
+				<p:inputText value="#{cursoMB.curso.sigla}" />
+				<p:outputLabel value="Nome" />
+				<p:inputText value="#{cursoMB.curso.nome}" />
+				<p:outputLabel value="DataVigencia" />
+				<p:inputText value="#{cursoMB.curso.dataVigencia}" />
+				<p:outputLabel value="Programa" />
+				<p:inputText value="#{cursoMB.curso.programa}" />
+				<p:outputLabel value="CargaHoraria" />
+				<p:inputText value="#{cursoMB.curso.cargaHoraria}" />
+				<p:outputLabel value="Valor" />
+				<p:inputText value="#{cursoMB.curso.valor}" />
+				<p:outputLabel value="ValorHoraInstrutor" />
+				<p:inputText value="#{cursoMB.curso.valorHoraInstrutor}" />
+			</p:panelGrid>
+			<p:commandButton value="Salvar" action="#{cursoMB.salvar}"
+				update=":formCurso" />
+
+			<p:dataTable value="#{cursoMB.cursos}" var="aux">
+				<p:column headerText="Sigla">
+					<h:outputText value="#{aux.sigla}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{aux.nome}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="DataVigencia">
+					<h:outputText value="#{aux.dataVigencia}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Programa">
+					<h:outputText value="#{aux.programa}"></h:outputText>
+				</p:column>
+				<p:column headerText="CargaHoraria">
+					<h:outputText value="#{aux.cargaHoraria}"></h:outputText>
+				</p:column>
+				<p:column headerText="Valor">
+					<h:outputText value="#{aux.valor}"></h:outputText>
+				</p:column>
+				<p:column headerText="ValorHoraInstrutor">
+					<h:outputText value="#{aux.valorHoraInstrutor}"></h:outputText>
+				</p:column>
+
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

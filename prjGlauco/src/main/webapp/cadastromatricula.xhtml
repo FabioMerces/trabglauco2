@@ -1,0 +1,50 @@
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+
+	<ui:define name="title">
+		<h:outputText value="Cadastro de Matrículas" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<h1>Cadastro de Matrículas</h1>
+		<h:form id="formMatricula">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Codigo" />
+				<p:inputText value="#{matriculaMB.matricula.codigo}" />
+				<p:outputLabel value="Data" />
+				<p:inputText value="#{matriculaMB.matricula.data}" />
+				<p:outputLabel value="QtdeFaltas" />
+				<p:inputText value="#{matriculaMB.matricula.qtdeFaltas}" />
+				<p:outputLabel value="Nota" />
+				<p:inputText value="#{matriculaMB.matricula.nota}" />
+			</p:panelGrid>
+			<p:commandButton value="Salvar" action="#{matriculaMB.salvar}"
+				update=":formMatricula" />
+
+			<p:dataTable value="#{matriculaMB.matriculas}" var="aux">
+				<p:column headerText="Codigo">
+					<h:outputText value="#{aux.codigo}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Data">
+					<h:outputText value="#{aux.data}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="QtdeFaltas">
+					<h:outputText value="#{aux.qtdeFaltas}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Nota">
+					<h:outputText value="#{aux.nota}"></h:outputText>
+				</p:column>
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

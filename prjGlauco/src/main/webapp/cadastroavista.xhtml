@@ -1,0 +1,57 @@
+<ui:composition template="template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+
+	<ui:define name="title">
+		<h:outputText value="Cadastro de Pagamentos a Vista" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<h1>Cadastro de Pagamentos a Vista</h1>
+		<h:form id="formaVista">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Codigo" />
+				<p:inputText value="#{aVistaMB.AVista.codigo}" />
+				<p:outputLabel value="Valor" />
+				<p:inputText value="#{aVistaMB.AVista.valor}" />
+				<p:outputLabel value="Agenda" />
+				<p:inputText value="#{aVistaMB.AVista.agenda}" />
+				<p:outputLabel value="NCheque" />
+				<p:inputText value="#{aVistaMB.AVista.NCheque}" />
+				<p:outputLabel value="PreData" />
+				<p:inputText value="#{aVistaMB.AVista.preData}" />
+			</p:panelGrid>
+			<p:commandButton value="Salvar" action="#{aVistaMB.salvar}"
+				update=":formaVista" />
+
+			<p:dataTable value="#{aVistaMB.AVistas}" var="aux">
+				<p:column headerText="Codigo">
+					<h:outputText value="#{aux.codigo}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Valor">
+					<h:outputText value="#{aux.valor}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Agenda">
+					<h:outputText value="#{aux.agenda}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="NCheque">
+					<h:outputText value="#{aux.NCheque}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="PreData">
+					<h:outputText value="#{aux.preData}"></h:outputText>
+				</p:column>
+
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
