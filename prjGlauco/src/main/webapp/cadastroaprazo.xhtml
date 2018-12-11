@@ -15,16 +15,14 @@
 		<h1>Cadastro de pagamentos a Prazo</h1>
 		<h:form id="formAPrazo">
 			<p:panelGrid columns="2">
-				<p:outputLabel value="Codigo" />
-				<p:inputText value="#{aPrazoMB.APrazo.codigo}" />
 				<p:outputLabel value="Valor" />
-				<p:inputText value="#{aPrazoMB.APrazo.valor}" />
+				<p:inputText value="#{aPrazoMB.APrazo.valor}" required="true"/>
 				<p:outputLabel value="TaxaJuros" />
-				<p:inputText value="#{aPrazoMB.APrazo.taxaJuros}" />
+				<p:inputText value="#{aPrazoMB.APrazo.taxaJuros}" required="true"/>
 				<p:outputLabel value="QtdeMensalidade" />
-				<p:inputText value="#{aPrazoMB.APrazo.qtdeMensalidade}" />
+				<p:inputText value="#{aPrazoMB.APrazo.qtdeMensalidade}" required="true"/>
 				<p:outputLabel value="DtVencimento" />
-				<p:inputText value="#{aPrazoMB.APrazo.dtVencimento}" />
+				<p:inputText value="#{aPrazoMB.APrazo.dtVencimento}" required="true"/>
 			</p:panelGrid>
 			<p:commandButton value="Salvar" action="#{aPrazoMB.salvar}"
 				update=":formAPrazo" />

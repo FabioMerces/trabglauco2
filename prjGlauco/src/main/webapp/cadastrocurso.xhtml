@@ -16,19 +16,19 @@
 		<h:form id="formCurso">
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Sigla" />
-				<p:inputText value="#{cursoMB.curso.sigla}" />
+				<p:inputText value="#{cursoMB.curso.sigla}" required="true"/>
 				<p:outputLabel value="Nome" />
-				<p:inputText value="#{cursoMB.curso.nome}" />
+				<p:inputText value="#{cursoMB.curso.nome}" required="true"/>
 				<p:outputLabel value="DataVigencia" />
-				<p:inputText value="#{cursoMB.curso.dataVigencia}" />
+				<p:inputText value="#{cursoMB.curso.dataVigencia}" required="true"/>
 				<p:outputLabel value="Programa" />
 				<p:inputText value="#{cursoMB.curso.programa}" />
 				<p:outputLabel value="CargaHoraria" />
-				<p:inputText value="#{cursoMB.curso.cargaHoraria}" />
+				<p:inputText value="#{cursoMB.curso.cargaHoraria}" required="true"/>
 				<p:outputLabel value="Valor" />
-				<p:inputText value="#{cursoMB.curso.valor}" />
+				<p:inputText value="#{cursoMB.curso.valor}" required="true"/>
 				<p:outputLabel value="ValorHoraInstrutor" />
-				<p:inputText value="#{cursoMB.curso.valorHoraInstrutor}" />
+				<p:inputText value="#{cursoMB.curso.valorHoraInstrutor}" required="true"/>
 			</p:panelGrid>
 			<p:commandButton value="Salvar" action="#{cursoMB.salvar}"
 				update=":formCurso" />

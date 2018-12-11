@@ -14,41 +14,37 @@
 	<ui:define name="principal">
 		<h1>Cadastro de Alunos</h1>
 		<h:form id="formAluno">
-			<p:panelGrid columns="2">
+			
+			<p:panelGrid columns="4">
 				<p:outputLabel value="CPF" />
-				<p:inputText value="#{alunoMB.aluno.CPF}" required="true" disabled="#{not alunoMB.habilitarConsulta}"/>
-				<p:outputLabel value="Nome" />
+				<p:inputMask mask="99/99/9999" value="#{alunoMB.aluno.CPF}" required="true"/>
+				<p:outputLabel value="2" />
 				<p:inputText value="#{alunoMB.aluno.nome}" />
-				<p:outputLabel value="DataNasc" />
-				<p:inputText value="#{alunoMB.aluno.dataNasc}" />
-				<p:outputLabel value="Endereco" />
-				<p:inputText value="#{alunoMB.aluno.endereco}" />
-				<p:outputLabel value="Bairro" />
-				<p:inputText value="#{alunoMB.aluno.bairro}" />
-				<p:outputLabel value="Cidade" />
-				<p:inputText value="#{alunoMB.aluno.cidade}" />
-				<p:outputLabel value="Estado" />
-				<p:inputText value="#{alunoMB.aluno.estado}" />
-				<p:outputLabel value="CEP" />
-				<p:inputText value="#{alunoMB.aluno.CEP}" />
-				<p:outputLabel value="Telefone" />
-				<p:inputText value="#{alunoMB.aluno.telefone}" />
-				<p:outputLabel value="Celular" />
-				<p:inputText value="#{alunoMB.aluno.celular}" />
-				<p:outputLabel value="Sexo" />
-				<p:inputText value="#{alunoMB.aluno.sexo}" />
-				<p:outputLabel value="EstadoCivil" />
-				<p:inputText value="#{alunoMB.aluno.estadoCivil}" />
-				<p:outputLabel value="RG" />
-				<p:inputText value="#{alunoMB.aluno.RG}" />
-				<p:outputLabel value="Email" />
-				<p:inputText value="#{alunoMB.aluno.email}" />
-				<p:outputLabel value="Numero" />
-				<p:inputText value="#{alunoMB.aluno.numero}" disabled="#{not alunoMB.habilitarConsulta}"/>
-				<p:outputLabel value="Escolaridade" />
-				<p:inputText value="#{alunoMB.aluno.escolaridade}" disabled="#{alunoMB.habilitarConsulta}"/>
+				<p:selectOneRadio id="teste" value="" layout="custom">
+					<f:selectItem itemLabel="A Vista" itemValue="avista" />
+					<f:selectItem itemLabel="A Prazo" itemValue="aprazo" />
+				</p:selectOneRadio>
+				
+				<p:panelGrid columns="2">	
+					<h:outputLabel for="rdbavista" value="A Vista" />
+					<p:radioButton id="rdbavista" for="teste" itemIndex="0" />
+					<h:outputLabel for="rdbaprazo" value="A Prazo" />
+					<p:radioButton id="rdbaprazo" for="teste" itemIndex="1" />
+				</p:panelGrid>
 			</p:panelGrid>
 			
+			<p:panelGrid columns="8">
+				<p:outputLabel value="1" />
+				<p:outputLabel value="2" />
+				<p:outputLabel value="3" />
+				<p:outputLabel value="4" />
+				<p:outputLabel value="5" />
+				<p:outputLabel value="6" />
+				<p:outputLabel value="7" />
+				<p:outputLabel value="8" />
+				<p:outputLabel value="9" />
+				<p:outputLabel value="10" />
+			</p:panelGrid>
 			
 			<p:commandButton value="Consultar" action="#{alunoMB.consultar}"
 				update=":formAluno" />

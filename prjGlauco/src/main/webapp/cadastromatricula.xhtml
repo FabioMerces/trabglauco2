@@ -15,10 +15,8 @@
 		<h1>Cadastro de Matrículas</h1>
 		<h:form id="formMatricula">
 			<p:panelGrid columns="2">
-				<p:outputLabel value="Codigo" />
-				<p:inputText value="#{matriculaMB.matricula.codigo}" />
 				<p:outputLabel value="Data" />
-				<p:inputText value="#{matriculaMB.matricula.data}" />
+				<p:inputText value="#{matriculaMB.matricula.data}" required="true"/>
 				<p:outputLabel value="QtdeFaltas" />
 				<p:inputText value="#{matriculaMB.matricula.qtdeFaltas}" />
 				<p:outputLabel value="Nota" />

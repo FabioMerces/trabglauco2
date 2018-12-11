@@ -15,10 +15,8 @@
 		<h1>Cadastro de Pagamentos a Vista</h1>
 		<h:form id="formaVista">
 			<p:panelGrid columns="2">
-				<p:outputLabel value="Codigo" />
-				<p:inputText value="#{aVistaMB.AVista.codigo}" />
 				<p:outputLabel value="Valor" />
-				<p:inputText value="#{aVistaMB.AVista.valor}" />
+				<p:inputText value="#{aVistaMB.AVista.valor}" required="true"/>
 				<p:outputLabel value="Agenda" />
 				<p:inputText value="#{aVistaMB.AVista.agenda}" />
 				<p:outputLabel value="NCheque" />
