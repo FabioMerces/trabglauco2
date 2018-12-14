@@ -8,23 +8,18 @@
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
 
 	<ui:define name="title">
-		<h:outputText value="Cadastro de Pagamentos a Vista" />
+		<h:outputText value="Remoção Pagamentos a Vista" />
 	</ui:define>
 
 	<ui:define name="principal">
-		<h1>Cadastro de Pagamentos a Vista</h1>
+		<h1>Remoção Pagamentos a Vista</h1>
 		<h:form id="formaVista">
 			<p:panelGrid columns="4">
-				<p:outputLabel value="Valor" />
-				<p:inputText value="#{aVistaMB.AVista.valor}" required="true"/>
-				<p:outputLabel value="Agenda" />
-				<p:inputText value="#{aVistaMB.AVista.agenda}" />
-				<p:outputLabel value="NCheque" />
-				<p:inputText value="#{aVistaMB.AVista.NCheque}" />
-				<p:outputLabel value="PreData" />
-				<p:inputText value="#{aVistaMB.AVista.preData}" />
+				<p:outputLabel value="Código" />
+				<p:inputText value="#{aVistaMB.AVista.codigo}" required="true"/>
+				
 			</p:panelGrid>
-			<p:commandButton value="Salvar" action="#{aVistaMB.salvar}"
+			<p:commandButton value="Remover" action="#{aVistaMB.remover}"
 				update=":formaVista" />
 
 			<p:dataTable value="#{aVistaMB.AVistas}" var="aux">

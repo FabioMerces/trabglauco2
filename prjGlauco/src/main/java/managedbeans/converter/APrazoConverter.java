@@ -5,20 +5,20 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import Entidades.Turma;
-import service.TurmaService;
+import Entidades.APrazo;
+import service.APrazoService;
 
-@FacesConverter("converterTurma")
-public class TurmaConverter implements Converter {
+@FacesConverter("converterAPrazo")
+public class APrazoConverter implements Converter {
 
-	private TurmaService servico = new TurmaService();
+	private APrazoService servico = new APrazoService();
 	
 	@Override
 	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
 		
-		Turma f=null;
+		APrazo f=null;
 		if(value != null && !value.equals("")) {
-			f = servico.getTurmaBySiglaTurma(value);	
+			f = servico.getAPrazoByCodigo(value);	
 		}
 		
 		servico.closeEntityManager();
@@ -28,11 +28,11 @@ public class TurmaConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext fc, UIComponent uic,
-			Object turma) {
-		if (turma == null || turma.equals("")) {
+			Object aPrazo) {
+		if (aPrazo == null || aPrazo.equals("")) {
 			return null;
 		} else {
-			return ((Turma) turma).getSiglaTurma();
+			return ((APrazo) aPrazo).getCodigo();
 
 		}
 	}

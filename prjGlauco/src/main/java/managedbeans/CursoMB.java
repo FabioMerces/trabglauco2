@@ -21,6 +21,12 @@ public class CursoMB {
 		curso = new Curso();
 	}
 	
+	public void remover() {
+		cursoService.remove(curso);
+		cursoService.closeEntityManager();
+		curso = new Curso();
+	}
+	
 	public List<Curso> getCursos(){
 		List <Curso> lista;
 		lista = cursoService.getAll(Curso.class);

@@ -14,13 +14,13 @@
 	<ui:define name="principal">
 		<h1>Cadastro de Instrutor</h1>
 		<h:form id="formInstrutor">
-			<p:panelGrid columns="2">
+			<p:panelGrid columns="4">
 				<p:outputLabel value="CPF" />
 				<p:inputText value="#{instrutorMB.instrutor.CPF}" required="true"/>
 				<p:outputLabel value="Nome" />
-				<p:inputText value="#{instrutorMB.instrutor.nome}" required="true"/>
+				<p:inputText value="#{instrutorMB.instrutor.nome}"/>
 				<p:outputLabel value="DataNasc" />
-				<p:inputText value="#{instrutorMB.instrutor.dataNasc}" required="true"/>
+				<p:inputText value="#{instrutorMB.instrutor.dataNasc}" />
 				<p:outputLabel value="Endereco" />
 				<p:inputText value="#{instrutorMB.instrutor.endereco}" />
 				<p:outputLabel value="Bairro" />
@@ -36,19 +36,19 @@
 				<p:outputLabel value="Celular" />
 				<p:inputText value="#{instrutorMB.instrutor.celular}" />
 				<p:outputLabel value="Sexo" />
-				<p:inputText value="#{instrutorMB.instrutor.sexo}" required="true"/>
+				<p:inputText value="#{instrutorMB.instrutor.sexo}" />
 				<p:outputLabel value="EstadoCivil" />
 				<p:inputText value="#{instrutorMB.instrutor.estadoCivil}" />
 				<p:outputLabel value="RG" />
-				<p:inputText value="#{instrutorMB.instrutor.RG}" required="true"/>
+				<p:inputText value="#{instrutorMB.instrutor.RG}" />
 				<p:outputLabel value="Email" />
-				<p:inputText value="#{instrutorMB.instrutor.email}" required="true"/>
+				<p:inputText value="#{instrutorMB.instrutor.email}" />
 				<p:outputLabel value="Numero" />
 				<p:inputText value="#{instrutorMB.instrutor.numero}" />
 				<p:outputLabel value="Formacao" />
-				<p:inputText value="#{instrutorMB.instrutor.formacao}" required="true"/>
+				<p:inputText value="#{instrutorMB.instrutor.formacao}" />
 				<p:outputLabel value="AreaAtuacao" />
-				<p:inputText value="#{instrutorMB.instrutor.areaAtuacao}" required="true"/>
+				<p:inputText value="#{instrutorMB.instrutor.areaAtuacao}" />
 			</p:panelGrid>
 			<p:commandButton value="Salvar" action="#{instrutorMB.salvar}"
 				update=":formInstrutor" />

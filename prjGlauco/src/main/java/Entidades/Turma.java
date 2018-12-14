@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Turma {
@@ -15,8 +16,10 @@ public class Turma {
 	private String Descricao, DataInicio, DataTermino, Periodo;
     private int QtdeVagas;
     private String Observacoes;
-    private Instrutor instrutor;
 
+    @OneToOne
+    private Instrutor instrutor;
+    
     @ManyToOne
 	private Curso curso;
     

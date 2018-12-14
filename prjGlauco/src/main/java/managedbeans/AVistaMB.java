@@ -21,6 +21,12 @@ public class AVistaMB {
 		avista = new AVista();
 	}
 	
+	public void remover() {
+		avistaService.remove(avista);
+		avistaService.closeEntityManager();
+		avista = new AVista();
+	}
+	
 	public List<AVista> getAVistas(){
 		List <AVista> lista;
 		lista = avistaService.getAll(AVista.class);

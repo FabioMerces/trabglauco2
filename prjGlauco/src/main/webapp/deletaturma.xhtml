@@ -8,41 +8,18 @@
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
 
 	<ui:define name="title">
-		<h:outputText value="Cadastro de Turmas" />
+		<h:outputText value="Remoção Turmas" />
 	</ui:define>
 
 	<ui:define name="principal">
-		<h1>Cadastro de Turmas</h1>
+		<h1>Remoção Turmas</h1>
 		<h:form id="formTurma">
 			<p:panelGrid columns="4">
 				<p:outputLabel value="Sigla Turma" />
 				<p:inputText value="#{turmaMB.turma.siglaTurma}" required="true"/>
-				<p:outputLabel value="Descricao" />
-				<p:inputText value="#{turmaMB.turma.descricao}" />
-				<p:outputLabel value="Curso" />
-				<p:selectOneMenu value="#{turmaMB.curso}" 
-										converter="converterCurso">
-					<f:selectItems value="#{turmaMB.cursos}" var="aux"
-						itemValue="#{aux}" itemLabel="#{aux.sigla}" />
-				</p:selectOneMenu>
-				<p:outputLabel value="Instrutor" />
-				<p:selectOneMenu value="#{turmaMB.instrutor}" 
-										converter="converterInstrutor">
-					<f:selectItems value="#{turmaMB.instrutors}" var="aux"
-						itemValue="#{aux}" itemLabel="#{aux.CPF}" />
-				</p:selectOneMenu>
-				<p:outputLabel value="Data Inicio" />
-				<p:inputText value="#{turmaMB.turma.dataInicio}" />
-				<p:outputLabel value="Data Termino" />
-				<p:inputText value="#{turmaMB.turma.dataTermino}" />
-				<p:outputLabel value="Periodo" />
-				<p:inputText value="#{turmaMB.turma.periodo}" />
-				<p:outputLabel value="QtdeVagas" />
-				<p:inputText value="#{turmaMB.turma.qtdeVagas}" />
-				<p:outputLabel value="Observacoes" />
-				<p:inputText value="#{turmaMB.turma.observacoes}" />
+				
 			</p:panelGrid>
-			<p:commandButton value="Salvar" action="#{turmaMB.salvar}"
+			<p:commandButton value="Remover" action="#{turmaMB.remover}"
 				update=":formTurma" />
 
 			<p:dataTable value="#{turmaMB.turmas}" var="aux">

@@ -1,21 +1,17 @@
 package Entidades;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Matricula {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int Codigo;
+	private String Codigo;
     private String Data;
     private int QtdeFaltas;
     private double Nota;
@@ -26,11 +22,6 @@ public class Matricula {
     @ManyToOne
     private Turma turma;
     
-    @OneToMany(mappedBy="matricula")
-	private List<AVista> avistas = new ArrayList<AVista>();
-    
-	@OneToMany(mappedBy="matricula")
-	private List<APrazo> aprazos = new ArrayList<APrazo>();
     
     public Matricula(String Data){
         this.Data = Data;
@@ -40,39 +31,16 @@ public class Matricula {
         
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
 		return Codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		Codigo = codigo;
 	}
 
-	public List<AVista> getAvistas() {
-		return avistas;
-	}
 
-	public void setAvistas(List<AVista> avistas) {
-		this.avistas = avistas;
-	}
-
-	public List<APrazo> getAprazos() {
-		return aprazos;
-	}
-
-	public void setAprazos(List<APrazo> aprazos) {
-		this.aprazos = aprazos;
-	}
-
-    public void addAPrazo(APrazo ap){
-        aprazos.add(ap);
-    }
-    
-    public void addAVista(AVista av){
-        avistas.add(av);
-    }
-
-    public String getData() {
+	public String getData() {
         return Data;
     }
 
@@ -116,11 +84,13 @@ public class Matricula {
         /*Não Implementar*/
     }
 
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Codigo;
+		result = prime * result + ((Codigo == null) ? 0 : Codigo.hashCode());
 		return result;
 	}
 
@@ -133,7 +103,10 @@ public class Matricula {
 		if (getClass() != obj.getClass())
 			return false;
 		Matricula other = (Matricula) obj;
-		if (Codigo != other.Codigo)
+		if (Codigo == null) {
+			if (other.Codigo != null)
+				return false;
+		} else if (!Codigo.equals(other.Codigo))
 			return false;
 		return true;
 	}

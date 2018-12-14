@@ -21,6 +21,12 @@ public class InstrutorMB {
 		instrutor = new Instrutor();
 	}
 	
+	public void remover() {
+		instrutorService.remove(instrutor);
+		instrutorService.closeEntityManager();
+		instrutor = new Instrutor();
+	}
+	
 	public List<Instrutor> getInstrutores(){
 		List <Instrutor> lista;
 		lista = instrutorService.getAll(Instrutor.class);

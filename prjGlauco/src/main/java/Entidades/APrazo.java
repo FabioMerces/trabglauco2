@@ -4,24 +4,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class APrazo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int Codigo;
+	private String Codigo;
     private double Valor, TaxaJuros;
     private int QtdeMensalidade;
     private String DtVencimento;
     
-    @ManyToOne
-    private Matricula matricula;
-
+/*
 	public void setMatricula(Matricula M){
         this.matricula = M;
     }
-    
+	public Matricula getMatricula() {
+		return matricula;
+	}
+    */
     public void setValor(double Valor) {
         this.Valor = Valor;
     }
@@ -38,11 +39,11 @@ public class APrazo {
         this.DtVencimento = DtVencimento;
     }
     
-	public int getCodigo() {
+	public String getCodigo() {
 		return Codigo;
 	}
 	
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
 		Codigo = codigo;
 	}
 
@@ -62,15 +63,11 @@ public class APrazo {
 		return DtVencimento;
 	}
 
-	public Matricula getMatricula() {
-		return matricula;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Codigo;
+		result = prime * result + ((Codigo == null) ? 0 : Codigo.hashCode());
 		return result;
 	}
 
@@ -83,10 +80,15 @@ public class APrazo {
 		if (getClass() != obj.getClass())
 			return false;
 		APrazo other = (APrazo) obj;
-		if (Codigo != other.Codigo)
+		if (Codigo == null) {
+			if (other.Codigo != null)
+				return false;
+		} else if (!Codigo.equals(other.Codigo))
 			return false;
 		return true;
 	}
 
+
+	
 	
 }

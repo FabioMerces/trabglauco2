@@ -1,7 +1,5 @@
 package managedbeans.converter;
 
-
-
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -9,8 +7,6 @@ import javax.faces.convert.FacesConverter;
 
 import Entidades.Curso;
 import service.CursoService;
-
-
 
 @FacesConverter("converterCurso")
 public class CursoConverter implements Converter {
@@ -22,7 +18,7 @@ public class CursoConverter implements Converter {
 		
 		Curso f=null;
 		if(value != null && !value.equals("")) {
-			f = servico.getCursoByNome(value);	
+			f = servico.getCursoBySigla(value);	
 		}
 		
 		servico.closeEntityManager();
@@ -36,7 +32,7 @@ public class CursoConverter implements Converter {
 		if (curso == null || curso.equals("")) {
 			return null;
 		} else {
-			return ((Curso) curso).getNome();
+			return ((Curso) curso).getSigla();
 
 		}
 	}

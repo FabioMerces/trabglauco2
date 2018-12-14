@@ -8,29 +8,18 @@
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
 
 	<ui:define name="title">
-		<h:outputText value="Cadastro de Cursos" />
+		<h:outputText value="Remoção Cursos" />
 	</ui:define>
 
 	<ui:define name="principal">
-		<h1>Cadastro de Cursos</h1>
+		<h1>Remoção Cursos</h1>
 		<h:form id="formCurso">
 			<p:panelGrid columns="4">
 				<p:outputLabel value="Sigla" />
 				<p:inputText value="#{cursoMB.curso.sigla}" required="true"/>
-				<p:outputLabel value="Nome" />
-				<p:inputText value="#{cursoMB.curso.nome}" />
-				<p:outputLabel value="DataVigencia" />
-				<p:inputText value="#{cursoMB.curso.dataVigencia}" />
-				<p:outputLabel value="Programa" />
-				<p:inputText value="#{cursoMB.curso.programa}" />
-				<p:outputLabel value="CargaHoraria" />
-				<p:inputText value="#{cursoMB.curso.cargaHoraria}" />
-				<p:outputLabel value="Valor" />
-				<p:inputText value="#{cursoMB.curso.valor}" />
-				<p:outputLabel value="ValorHoraInstrutor" />
-				<p:inputText value="#{cursoMB.curso.valorHoraInstrutor}" />
+				
 			</p:panelGrid>
-			<p:commandButton value="Salvar" action="#{cursoMB.salvar}"
+			<p:commandButton value="Remover" action="#{cursoMB.remover}"
 				update=":formCurso" />
 
 			<p:dataTable value="#{cursoMB.cursos}" var="aux">

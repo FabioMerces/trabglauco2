@@ -6,58 +6,35 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui2="http://java.sun.com/jsf/facelets"
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+
 	<ui:define name="title">
-		<h:outputText value="Cadastro de Alunos" />
+		<h:outputText value="Remoção Instrutor" />
 	</ui:define>
+
 	<ui:define name="principal">
-		<h1>Cadastro de Alunos</h1>
-		<h:form id="formAluno">
+		<h1>Remoção Instrutor</h1>
+		<h:form id="formInstrutor">
 			<p:panelGrid columns="4">
 				<p:outputLabel value="CPF" />
-				<p:inputText value="#{alunoMB.aluno.CPF}" required="true"/>
-				<p:outputLabel value="Nome" />
-				<p:inputText value="#{alunoMB.aluno.nome}" />
-				<p:outputLabel value="DataNasc" />
-				<p:inputText value="#{alunoMB.aluno.dataNasc}" />
-				<p:outputLabel value="Endereco" />
-				<p:inputText value="#{alunoMB.aluno.endereco}" />
-				<p:outputLabel value="Bairro" />
-				<p:inputText value="#{alunoMB.aluno.bairro}" />
-				<p:outputLabel value="Cidade" />
-				<p:inputText value="#{alunoMB.aluno.cidade}" />
-				<p:outputLabel value="Estado" />
-				<p:inputText value="#{alunoMB.aluno.estado}" />
-				<p:outputLabel value="CEP" />
-				<p:inputText value="#{alunoMB.aluno.CEP}" />
-				<p:outputLabel value="Telefone" />
-				<p:inputText value="#{alunoMB.aluno.telefone}" />
-				<p:outputLabel value="Celular" />
-				<p:inputText value="#{alunoMB.aluno.celular}" />
-				<p:outputLabel value="Sexo" />
-				<p:inputText value="#{alunoMB.aluno.sexo}" />
-				<p:outputLabel value="EstadoCivil" />
-				<p:inputText value="#{alunoMB.aluno.estadoCivil}" />
-				<p:outputLabel value="RG" />
-				<p:inputText value="#{alunoMB.aluno.RG}" />
-				<p:outputLabel value="Email" />
-				<p:inputText value="#{alunoMB.aluno.email}" />
-				<p:outputLabel value="Numero" />
-				<p:inputText value="#{alunoMB.aluno.numero}" />
-				<p:outputLabel value="Escolaridade" />
-				<p:inputText value="#{alunoMB.aluno.escolaridade}" />
+				<p:inputText value="#{instrutorMB.instrutor.CPF}" required="true"/>
+				
 			</p:panelGrid>
-			<p:commandButton value="Salvar" action="#{alunoMB.salvar}"
-				update=":formAluno" />
-			<p:dataTable value="#{alunoMB.alunos}" var="aux">
+			<p:commandButton value="Remover" action="#{instrutorMB.remover}"
+				update=":formInstrutor" />
+
+			<p:dataTable value="#{instrutorMB.instrutores}" var="aux">
 				<p:column headerText="CPF">
 					<h:outputText value="#{aux.CPF}"></h:outputText>
 				</p:column>
+
 				<p:column headerText="Nome">
 					<h:outputText value="#{aux.nome}"></h:outputText>
 				</p:column>
+
 				<p:column headerText="DataNascimento">
 					<h:outputText value="#{aux.dataNasc}"></h:outputText>
 				</p:column>
+
 				<p:column headerText="Endereco">
 					<h:outputText value="#{aux.endereco}"></h:outputText>
 				</p:column>
@@ -94,10 +71,16 @@
 				<p:column headerText="Numero">
 					<h:outputText value="#{aux.numero}"></h:outputText>
 				</p:column>
-				<p:column headerText="Escolaridade">
-					<h:outputText value="#{aux.escolaridade}"></h:outputText>
+
+				<p:column headerText="Formacao">
+					<h:outputText value="#{aux.formacao}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="AreaAtuacao">
+					<h:outputText value="#{aux.areaAtuacao}"></h:outputText>
 				</p:column>
 			</p:dataTable>
+
 		</h:form>
 	</ui:define>
 </ui:composition>

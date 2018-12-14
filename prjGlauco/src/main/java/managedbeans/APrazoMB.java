@@ -20,6 +20,12 @@ public class APrazoMB {
 		aprazo = new APrazo();
 	}
 	
+	public void remover() {
+		aprazoService.remove(aprazo);
+		aprazoService.closeEntityManager();
+		aprazo = new APrazo();
+	}
+	
 	public List<APrazo> getAPrazos(){
 		List <APrazo> lista;
 		lista = aprazoService.getAll(APrazo.class);
